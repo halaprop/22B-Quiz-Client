@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>22A Review Problem</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.16.24/dist/css/uikit.min.css" />
+  <script src="https://cdn.jsdelivr.net/npm/uikit@3.16.24/dist/js/uikit.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/uikit@3.16.24/dist/js/uikit-icons.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.43.0/min/vs/loader.min.js"></script>
+  <link rel="stylesheet" href="./style.css" />
+</head>
+
+<body>
+
+  <div uk-navbar class="uk-background-primary uk-light">
+    <div class="uk-navbar-left">
+      <h4 id="title" class="uk-text-center uk-margin-top uk-margin-left">22A Review Problem</h4>
+      <div hidden id="busy-spinner" class="uk-margin-right" uk-spinner></div>
+    </div>
+  </div>
+
+  <div class="uk-grid-collapse uk-flex-nowrap" uk-grid>
+    <!-- Left Sidebar -->
+    <div class="uk-width-1-4@s sidebar uk-background-muted">
+      <form id="student-info-form">
+        <div class="uk-margin-small">
+          <label class="uk-form-label" for="firstName">First Name</label>
+          <input class="uk-input" id="firstName" type="text" required>
+        </div>
+        <div class="uk-margin-small">
+          <label class="uk-form-label" for="lastName">Last Name</label>
+          <input class="uk-input" id="lastName" type="text" required>
+        </div>
+        <div class="uk-margin-small">
+          <label class="uk-form-label" for="studentID">Student ID</label>
+          <input class="uk-input" id="studentID" type="text" required>
+        </div>
+        <div class="uk-margin-small">
+          <label class="uk-form-label" for="year">Year You Took 22A (yyyy)</label>
+          <input class="uk-input" id="year" type="text" placeholder="yyyy">
+        </div>
+        <div class="uk-margin-small">
+          <label class="uk-form-label" for="quarter">Quarter You Took 22A</label>
+          <select class="uk-select" id="quarter" aria-label="Select">
+            <option></option>
+            <option>Fall</option>
+            <option>Winter</option>
+            <option>Spring</option>
+            <option>Summer</option>
+          </select>
+          <div class="uk-margin-small">
+            <label class="uk-form-label" for="mode">Mode You Took 22A</label>
+            <select class="uk-select" id="mode" aria-label="Select">
+              <option></option>
+              <option>In-person</option>
+              <option>Online</option>
+            </select>
+          </div>
+          <div class="uk-margin-small">
+            <label class="uk-form-label" for="grade">Your 22A Grade</label>
+            <select class="uk-select" id="grade" aria-label="Select">
+              <option></option>
+              <option>A</option>
+              <option>B</option>
+              <option>C</option>
+              <option>Other</option>
+            </select>
+          </div>
+        </div>
+        <hr>
+        <button class="uk-button uk-button-primary uk-width-1-1" type="button" id="submit-button">Submit</button>
+      </form>
+    </div>
+
+    <!-- Main Content -->
+    <div class="uk-width-expand">
+      <div>
+        <!-- <a class="uk-button" href="#quiz-question" uk-toggle>Toggle Question</a> -->
+        <div>
+          <div id="quiz-question" class="uk-card uk-card-default uk-card-body  uk-padding-small">
+          </div>
+        </div>
+      </div>
+      <div id="editor-container" class="uk-margin uk-padding-small uk-card uk-card-default"></div>
+    </div>
+  </div>
+
+  <script type="module" src="app.js" defer></script>
+</body>
+</html>
