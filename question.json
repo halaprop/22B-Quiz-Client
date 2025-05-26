@@ -1,6 +1,6 @@
 
 {
-  "title": "22A Review Problem",
+  "title": "22A Review Quiz",
   "question": "<p>Write a C++ function called <span class=\"code-font\">PrintMyName</span> that prints your name on the console several times. The function must be defined as follows:</p>\n<ul>\n  <li>The function takes two parameters, <span class=\"code-font\">count</span> and <span class=\"code-font\">n</span></li>\n  <li><span class=\"code-font\">count</span> - Indicates the number of times to print your name</li>\n  <li><span class=\"code-font\">n</span> - A number less than <span class=\"code-font\">count</span>. On the nth iteration, instead of printing your name, print the string <span class=\"code-font\">\"Hello 22B\"</span></li>\n  <li>The result of the function is the sum of <span class=\"code-font\">count</span> and <span class=\"code-font\">n</span>.</li>\n</ul>\n<p>In the <span class=\"code-font\">main()</span> function, write a single line of code that calls the function and assigns the result to a variable called <span class=\"code-font\">sum</span>.</p>",
   "codeTemplate": "#include <iostream.h>\nusing namespace std;\n\n// code the function PrintMyName here\n\n\nint main() {\n    // code an invocation to the function here\n}"
 }
