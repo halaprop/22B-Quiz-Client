@@ -1,3 +1,4 @@
+
 #editor-container {
   height: calc(100vh);
 }
@@ -17,4 +18,27 @@
   color: black;
   font-size: 0.8rem;
   font-weight: 600;
+}
+
+video {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+  background: #000;
+}
+
+#video-container {
+  aspect-ratio: 8.5 / 11;
+}
+
+#modal-canvas {
+  display: block;
+  margin: auto;
+  background: #eee;
+}
+
+/* Let dropdowns escape grid cell if needed */
+.uk-grid > div {
+  overflow: visible;
+  position: relative;
 }

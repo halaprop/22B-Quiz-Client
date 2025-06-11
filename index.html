@@ -3,90 +3,165 @@
 
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>22A Review Quiz</title>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.16.24/dist/css/uikit.min.css" />
-  <script src="https://cdn.jsdelivr.net/npm/uikit@3.16.24/dist/js/uikit.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/uikit@3.16.24/dist/js/uikit-icons.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.43.0/min/vs/loader.min.js"></script>
+  <title>Review Problem Submission</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.23.0/dist/css/uikit.min.css" />
   <link rel="stylesheet" href="./style.css" />
+
 </head>
 
 <body>
 
-  <div uk-navbar class="uk-background-primary uk-light">
-    <div class="uk-navbar-left">
-      <h4 id="title" class="uk-text-center uk-margin-top uk-margin-left">22A Review Quiz</h4>
-      <div hidden id="busy-spinner" class="uk-margin-right" uk-spinner></div>
+  <nav class="uk-navbar-container uk-padding-small uk-background-muted">
+    <div class="uk-flex uk-flex-between uk-flex-middle uk-child-width-expand" uk-grid>
+      <div class="uk-text-center">
+        <span class="uk-text-middle uk-text-bold" id="nav-label" style="font-size: 1rem;">22A Review Problem</span>
+      </div>
     </div>
-  </div>
+  </nav>
 
-  <div class="uk-grid-collapse uk-flex-nowrap" uk-grid>
-    <!-- Left Sidebar -->
-    <div class="uk-width-1-4@s sidebar uk-background-muted">
-      <form id="student-info-form">
-        <div class="uk-margin-small">
-          <label class="uk-form-label" for="firstName">First Name</label>
-          <input class="uk-input" id="firstName" type="text" required>
-        </div>
-        <div class="uk-margin-small">
-          <label class="uk-form-label" for="lastName">Last Name</label>
-          <input class="uk-input" id="lastName" type="text" required>
-        </div>
-        <div class="uk-margin-small">
-          <label class="uk-form-label" for="studentID">Student ID</label>
-          <input class="uk-input" id="studentID" type="text" required>
-        </div>
-        <div class="uk-margin-small">
-          <label class="uk-form-label" for="year">Year You Took 22A (yyyy)</label>
-          <input class="uk-input" id="year" type="text" placeholder="yyyy">
-        </div>
-        <div class="uk-margin-small">
-          <label class="uk-form-label" for="quarter">Quarter You Took 22A</label>
-          <select class="uk-select" id="quarter" aria-label="Select">
-            <option></option>
-            <option>Fall</option>
-            <option>Winter</option>
-            <option>Spring</option>
-            <option>Summer</option>
-          </select>
-          <div class="uk-margin-small">
-            <label class="uk-form-label" for="mode">Mode You Took 22A</label>
-            <select class="uk-select" id="mode" aria-label="Select">
-              <option></option>
-              <option>In-person</option>
-              <option>Online</option>
+  <!-- Form -->
+  <div id="form-section" class="uk-container uk-container-small uk-margin-auto uk-margin-small-top">
+    <p class="uk-heading-line uk-text-center"><span>About you:</span></p>
+    <form class="uk-form-stacked" id="info-form">
+      <div class="uk-margin">
+        <label class="uk-form-label">First Name</label>
+        <input class="uk-input" id="firstName" type="text" required>
+      </div>
+
+      <div class="uk-margin">
+        <label class="uk-form-label">Last Name</label>
+        <input class="uk-input" id="lastName" type="text" required>
+      </div>
+
+      <div class="uk-margin">
+        <label class="uk-form-label">Student ID</label>
+        <input class="uk-input" id="studentID" type="text" required>
+      </div>
+
+      <div class="uk-margin">
+        <label class="uk-form-label">When You Took 22A</label>
+        <div class="uk-grid uk-child-width-1-2 uk-grid-small" uk-grid>
+          <div>
+            <select class="uk-select" id="year" required>
+              <option value="">Year</option>
             </select>
           </div>
-          <div class="uk-margin-small">
-            <label class="uk-form-label" for="grade">Your 22A Grade</label>
-            <select class="uk-select" id="grade" aria-label="Select">
-              <option></option>
-              <option>A</option>
-              <option>B</option>
-              <option>C</option>
-              <option>Other</option>
+          <div>
+            <select class="uk-select" id="quarter" required>
+              <option value="">Quarter</option>
+              <option>Fall</option>
+              <option>Winter</option>
+              <option>Spring</option>
+              <option>Summer</option>
             </select>
-          </div>
-        </div>
-        <hr>
-        <button class="uk-button uk-button-primary uk-width-1-1" type="button" id="submit-button">Submit</button>
-      </form>
-    </div>
-
-    <!-- Main Content -->
-    <div class="uk-width-expand">
-      <div>
-        <!-- <a class="uk-button" href="#quiz-question" uk-toggle>Toggle Question</a> -->
-        <div>
-          <div id="quiz-question" class="uk-card uk-card-default uk-card-body  uk-padding-small">
           </div>
         </div>
       </div>
-      <div id="editor-container" class="uk-margin uk-padding-small uk-card uk-card-default"></div>
+
+      <div class="uk-margin">
+        <label class="uk-form-label">Modality</label>
+        <div class="uk-flex uk-flex-middle uk-flex-wrap">
+          <label class="uk-margin-small-right">
+            <input class="uk-radio" type="radio" name="mode" value="In-person" required> In-person
+          </label>
+          <label>
+            <input class="uk-radio" type="radio" name="mode" value="Online" required> Online
+          </label>
+        </div>
+      </div>
+
+      <div class="uk-margin">
+        <label class="uk-form-label">Grade</label>
+        <select class="uk-select" id="grade" required>
+          <option value="">Select grade</option>
+          <option>A</option>
+          <option>B</option>
+          <option>C</option>
+          <option>D</option>
+          <option>F</option>
+        </select>
+      </div>
+
+      <div class="uk-flex uk-flex-center">
+        <button class="uk-button uk-button-primary" type="submit">Continue</button>
+      </div>
+    </form>
+  </div>
+
+  <!-- Camera -->
+  <div id="photo-section" class="uk-container uk-margin-small-top" hidden>
+    <p class="uk-heading-line uk-text-center"><span>Photograph your work:</span></p>
+    <div id="video-container">
+      <video id="video" autoplay playsinline></video>
+    </div>
+    <div class="uk-flex uk-flex-center uk-margin-small-top">
+      <button id="capture" class="uk-button uk-button-primary uk-border-circle"
+        style="width: 60px; height: 60px; padding: 0;">
+        <span uk-icon="icon: camera; ratio: 1.2"></span>
+      </button>
     </div>
   </div>
 
-  <script type="module" src="./app.js" defer></script>
+  <!-- Confirm photo -->
+  <div id="confirm-modal" uk-modal>
+    <div class="uk-modal-dialog uk-modal-body uk-text-center">
+      <canvas id="modal-canvas"></canvas>
+      <div class="uk-margin-top">
+        <button class="uk-button uk-button-default uk-modal-close" id="retake-btn">Retake</button>
+        <button class="uk-button uk-button-primary" id="save-photo-btn">Save</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Take another -->
+  <div id="next-photo-panel" class="uk-container uk-container-small uk-text-center uk-margin-small-top" hidden>
+    <p class="uk-heading-line uk-text-center"><span>Review</span></p>
+
+
+    <!-- Hidden review section -->
+    <div id="review-section" class="uk-animation-fade">
+      <div class="uk-grid-small uk-child-width-1-2 uk-flex-middle uk-margin-small-top" uk-grid>
+        <div class="uk-text-right"><strong>First name:</strong></div>
+        <div id="firstName" class="uk-text-left">John</div>
+
+        <div class="uk-text-right"><strong>Last name:</strong></div>
+        <div id="lastName" class="uk-text-left">Doe</div>
+
+        <div class="uk-text-right"><strong>Student ID:</strong></div>
+        <div id="studentID" class="uk-text-left">12345678</div>
+      </div>
+
+      <div class="uk-margin-small-top uk-margin-small-bottom uk-flex uk-flex-center">
+        <div class="uk-grid-small uk-child-width-auto uk-grid" id="photo-thumbs">
+          <div><img src="https://placehold.co/850x1100"
+              style="height: 12rem; aspect-ratio: 8.5 / 11; object-fit: cover;" alt="Photo 1"></div>
+          <div><img src="https://placehold.co/850x1100"
+              style="height: 12rem; aspect-ratio: 8.5 / 11; object-fit: cover;" alt="Photo 2"></div>
+        </div>
+      </div>
+
+      <button class="uk-button uk-button-default uk-margin-small-top uk-width-1-1" id="take-another-btn">
+        Photograph another page
+      </button>
+      <button class="uk-button uk-button-default uk-margin-small-top uk-width-1-1" id="final-submit-btn">
+        Start over
+      </button>
+      <button class="uk-button uk-button-primary uk-margin-large-top uk-width-1-1" id="final-submit-btn">
+        Submit
+      </button>
+    </div>
+  </div>
+
+  <!-- Summary -->
+  <div id="submitted-panel" class="uk-container uk-container-small uk-text-center uk-margin-large-top" hidden>
+    <h2 class="uk-heading-medium">Submitted.<br>Thank you</h2>
+  </div>
+
+  <!-- UIKit JS -->
+  <script src="https://cdn.jsdelivr.net/npm/uikit@3.23.0/dist/js/uikit.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/uikit@3.23.0/dist/js/uikit-icons.min.js"></script>
+  <script type="module" src="./app2.js" defer></script>
 </body>
+
 </html>
